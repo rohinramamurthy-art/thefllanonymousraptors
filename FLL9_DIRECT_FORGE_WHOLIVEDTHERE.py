@@ -1,17 +1,17 @@
-#Author - rohin
+Author - rohin
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
+from pybricks.tools import hub_menu
 
 
-#Setup the hub and sensors with gyro enabled
+#Setup the hub and sensors
 hub = PrimeHub()
 left_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.E)
 drive_base = DriveBase(left_motor, right_motor, wheel_diameter=88, axle_track=128)
-drive_base.use_gyro(True)
 front_motor = Motor(Port.D)
 back_motor = Motor(Port.C)
 distance_sensor = UltrasonicSensor(Port.B)
@@ -19,11 +19,8 @@ right_color_sensor = ColorSensor(Port.F)
 
 
 
-
-
-
-
-
+#gyro enabled
+drive_base.use_gyro(True)
 #navigate to 'who lived there'
 drive_base.settings(straight_speed=300) #navigate slow to the mission
 drive_base.settings(turn_rate=100)
@@ -32,13 +29,13 @@ drive_base.straight(40)
 #Step2
 drive_base.turn(-90)
 # Step 3
-drive_base.straight(250)
+drive_base.straight(250)#255
 # Step 4
 drive_base.turn(90)
 # Step 5
 drive_base.straight(375)
 front_motor.run_angle(200,200)#40
-drive_base.straight(335)
+drive_base.straight(350) #Rohin 335
 
 
 
@@ -56,16 +53,10 @@ drive_base.turn(-50)
 
 
 #Navigate to Forge next
-
-
 #Step7
-drive_base.straight(-75)
+drive_base.straight(-95) #Rohin 75 last run: 85
 #Step 8
 drive_base.turn(90)
-
-
-
-
 #Execute the forge mission
 wait(100)
 #Step9
@@ -79,7 +70,7 @@ wait(100)
 
 
 #Execute Heavy lift
-front_motor.run_angle(200,-300)#-100
+front_motor.run_angle(200,-270) #Rohin 2nd number is -300 previous run 280
 wait(600) #wait for arm to settle
 drive_base.settings(turn_rate=500)
 #Step 11
